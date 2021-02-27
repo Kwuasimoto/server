@@ -4,23 +4,55 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run serve",
+    "serve": "node ./dist/index.js",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+    "typeorm:migrate": "npm run typeorm migration:generate -- -n",
+    "typeorm:run": "npm run typeorm migrations:run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mikro-orm/cli": "^4.4.4",
+    "@mikro-orm/core": "^4.4.4",
+    "@mikro-orm/migrations": "^4.4.4",
+    "@mikro-orm/postgresql": "^4.4.4",
+    "@mikro-orm/reflection": "^4.4.4",
     "@types/cors": "^2.8.10",
+    "@types/dotenv-safe": "^8.1.1",
+    "apollo-server-express": "^2.21.0",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
+    "graphql": "^15.5.0",
     "lowdb": "^1.0.0",
-    "nanoid": "^3.1.20"
+    "nanoid": "^3.1.20",
+    "ph": "^0.1.10",
+    "type-graphql": "^1.1.1",
+    "typeorm": "^0.2.31"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
+    "@types/graphql": "^14.5.0",
     "@types/node": "^14.14.31",
+    "concurrently": "^6.0.0",
     "nodemon": "^2.0.7",
+    "pg": "^8.5.1",
+    "postgres": "^1.0.2",
+    "ts-node": "^9.1.1",
     "typescript": "^4.1.5"
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "configPaths": [
+      "./src/mikro-orm.config.ts",
+      "./dist/mikro-orm.config.js"
+    ]
   }
 }

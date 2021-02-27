@@ -1,0 +1,6 @@
+{
+    "symbol": "{{ticker}}",
+    "timeFrame": "{{interval}}",
+    "time": "{{time}}",
+    "trade": "enter-short@{{close}}"
+}

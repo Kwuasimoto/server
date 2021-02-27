@@ -1,15 +1,15 @@
 FROM node:latest
-
-WORKDIR "c:\\Windows\\DImages"
+WORKDIR /bin/app
 
 COPY package.json yarn.lock ./
 
 RUN yarn
+COPY . . 
 
-COPY . .
+# COPY ./ormconfig.docker.json ./ormconfig.json
 
-EXPOSE 5555
+EXPOSE 4000 
 
-CMD ["node", "index.js"]
+CMD ["node", "./dist/index.js"]
 
 # Update Heroku App 
