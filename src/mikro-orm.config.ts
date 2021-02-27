@@ -55,7 +55,7 @@ export const connectMikro = async (
       )
       await new Promise((resolve) => setTimeout(resolve, 3000))
 
-      if (conf.retryCount) conf.retryCount--
+      conf.retryCount--
     }
   else mikro = await MikroORM.init(conf)
 
